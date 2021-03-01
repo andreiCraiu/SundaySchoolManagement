@@ -28,6 +28,6 @@ namespace ProjectAPI.Controllers
                 return BadRequest("Username or password is incorrect");
 
             return Ok(user);
-        }
+          }
     }
 }

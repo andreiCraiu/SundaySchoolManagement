@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿
+using Microsoft.IdentityModel.Tokens;
 using SundaySchoolManagement.Application.Interfaces;
 using SundaySchoolManagement.Domain.DatabaseEntities;
 using SundaySchoolManagement.Infrastructure.Repositories;
@@ -42,6 +43,18 @@ namespace SundaySchoolManagement.Application
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        User IAuthorizeService.Register(string username, string email, string password)
+        {
+            var user = new User
+            {
+                UserName = username,
+                Password = password,
+                Email = email
+            };
+
+            return _userRepository.Insert(user);
         }
 
     }
