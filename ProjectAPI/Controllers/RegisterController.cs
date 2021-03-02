@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace SundaySchoolManagement.WebApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class RegisterController : ControllerBase
     {
         private IAuthorizeService _authorizeService;
